@@ -37,10 +37,10 @@ class App extends Component {
             <CssBaseline>
                 <Grid container justify="center" >
                     <Paper className={this.props.classes.root}>
-                        <DeveloperForm addDeveloper={this.handleNewDev} />
+                        <DeveloperForm />
                         <Divider />
                         <Grid container item xs={12}>
-                            <DeveloperList devs={this.state.devTeam} />
+                            <DeveloperList />
                         </Grid>
                     </Paper>
                 </Grid>

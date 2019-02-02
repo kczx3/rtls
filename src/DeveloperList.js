@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { List, ListItem, ListItemText, withStyles } from "@material-ui/core";
 
 const styles = () => ({
@@ -10,7 +11,7 @@ const styles = () => ({
 const DeveloperList = props => {
     return (
         <List className={props.classes.listRoot}>
-            {props.devs.map((dev, i) => (
+            {props.devTeam.map((dev, i) => (
                 <ListItem key={i} button>
                     <ListItemText primary={dev.name} secondary={`${dev.position} ${dev.level}`} />
                 </ListItem>
@@ -19,4 +20,8 @@ const DeveloperList = props => {
     );
 }
 
-export default withStyles(styles)(DeveloperList);
+const mapStateToProps = ({ devTeam }) => ({
+    devTeam
+});
+
+export default withStyles(styles)(connect(mapStateToProps)(DeveloperList));

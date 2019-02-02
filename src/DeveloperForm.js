@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { TextField, Grid, Select, InputLabel, MenuItem, FormControl, Button } from '@material-ui/core';
 import { positions, levels } from './constants';
+import { addDeveloper } from './redux/actions';
 
 class DeveloperForm extends Component {
     constructor(props) {
@@ -15,7 +17,7 @@ class DeveloperForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        if (this.state.name) {
+        if (this.state.name && this.state.position) {
             this.props.addDeveloper(this.state);
         }
     }
@@ -80,4 +82,7 @@ class DeveloperForm extends Component {
     }
 }
 
-export default DeveloperForm;
+export default connect(
+    null,
+    { addDeveloper }
+)(DeveloperForm);
