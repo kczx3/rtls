@@ -6,7 +6,9 @@ import DeveloperList from './DeveloperList';
 const styles = (theme) => ({
     root: {
         ...theme.mixins.gutters(),
-        marginTop: theme.spacing.unit * 3,
+        marginTop: theme.spacing.unit * 2,
+        marginLeft: theme.spacing.unit * 2,
+        marginRight: theme.spacing.unit * 2,
         paddingTop: theme.spacing.unit * 2,
         paddingBottom: theme.spacing.unit * 2,
         minWidth: (2/3)*100 + "%"
