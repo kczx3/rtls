@@ -1,28 +1,52 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { CssBaseline, Grid, Divider, Paper, withStyles } from "@material-ui/core";
+import DeveloperForm from './DeveloperForm';
+import DeveloperList from './DeveloperList';
+
+import { devTeam } from './constants';
+
+const styles = (theme) => ({
+    root: {
+        ...theme.mixins.gutters(),
+        marginTop: theme.spacing.unit * 3,
+        paddingTop: theme.spacing.unit * 2,
+        paddingBottom: theme.spacing.unit * 2,
+        minWidth: (2/3)*100 + "%"
+    }
+});
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            devTeam
+        };
+    }
+
+    handleNewDev = ({name, position, level}) => {
+        this.setState({
+            devTeam: [
+                ...this.state.devTeam,
+                {name, position, level}
+            ]
+        });
+    }
+
+    render() {
+        return (
+            <CssBaseline>
+                <Grid container justify="center" >
+                    <Paper className={this.props.classes.root}>
+                        <DeveloperForm addDeveloper={this.handleNewDev} />
+                        <Divider />
+                        <Grid container item xs={12}>
+                            <DeveloperList devs={this.state.devTeam} />
+                        </Grid>
+                    </Paper>
+                </Grid>
+            </CssBaseline>
+        );
+    }
 }
 
-export default App;
+export default withStyles(styles)(App);
