@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "/rtls/static/js/1.cadd354c.chunk.js"
   },
   {
-    "revision": "08cf67360313dd25ea1fa69e51b7ab56",
+    "revision": "dcec442a6b471ce9ddc4ed66ccbccfb2",
     "url": "/rtls/index.html"
   }
 ];
