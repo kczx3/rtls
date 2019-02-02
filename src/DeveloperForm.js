@@ -53,7 +53,7 @@ class DeveloperForm extends Component {
                                     <MenuItem value=""></MenuItem>
                                     {
                                         positions.map(position =>
-                                            position.available && <MenuItem key={position.key} value={position.value}>{position.value}</MenuItem>
+                                            <MenuItem key={position.key} value={position.value} disabled={!position.available}>{position.value}</MenuItem>
                                         )
                                     }
                                 </Select>

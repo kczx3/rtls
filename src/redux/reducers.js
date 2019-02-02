@@ -6,8 +6,6 @@ const initialState = {
 };
 
 export function rootReducer(state = initialState, action) {
-    console.log(action);
-
     switch(action.type) {
         case ADD_DEVELOPER:
             const { name, position, level } = action.payload;

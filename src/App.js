@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { CssBaseline, Grid, Divider, Paper, withStyles } from "@material-ui/core";
 import DeveloperForm from './DeveloperForm';
 import DeveloperList from './DeveloperList';
-
-import { devTeam } from './constants';
 
 const styles = (theme) => ({
     root: {
@@ -15,38 +13,18 @@ const styles = (theme) => ({
     }
 });
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            devTeam
-        };
-    }
-
-    handleNewDev = ({name, position, level}) => {
-        this.setState({
-            devTeam: [
-                ...this.state.devTeam,
-                {name, position, level}
-            ]
-        });
-    }
-
-    render() {
-        return (
-            <CssBaseline>
-                <Grid container justify="center" >
-                    <Paper className={this.props.classes.root}>
-                        <DeveloperForm />
-                        <Divider />
-                        <Grid container item xs={12}>
-                            <DeveloperList />
-                        </Grid>
-                    </Paper>
+const App = ({classes}) => (
+    <CssBaseline>
+        <Grid container justify="center" >
+            <Paper className={classes.root}>
+                <DeveloperForm />
+                <Divider />
+                <Grid container item xs={12}>
+                    <DeveloperList />
                 </Grid>
-            </CssBaseline>
-        );
-    }
-}
+            </Paper>
+        </Grid>
+    </CssBaseline>
+);
 
 export default withStyles(styles)(App);
